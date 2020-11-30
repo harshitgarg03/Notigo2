@@ -95,6 +95,7 @@ public class Stories extends AppCompatActivity {
 
                     }
 
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                         Toast.makeText(Stories.this, "Something is wrong", Toast.LENGTH_LONG);
