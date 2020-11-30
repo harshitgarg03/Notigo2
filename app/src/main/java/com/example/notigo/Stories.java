@@ -42,6 +42,8 @@ public class Stories extends AppCompatActivity {
     DatabaseReference reference;
     ArrayList<Listitem> list;
 
+    String xyz;
+
 
 
     @Override
@@ -77,7 +79,9 @@ public class Stories extends AppCompatActivity {
                 list = new ArrayList<Listitem>();
 
                 //never orderbyChild - recorded date as String + assume firebase takes in data daily so data alr sorted based on date
-                reference = FirebaseDatabase.getInstance().getReference().child("ComStruc");
+                //"ComStruc"
+                String newString = getIntent().getExtras().getString("Subject_code");
+                reference = FirebaseDatabase.getInstance().getReference().child(newString);
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

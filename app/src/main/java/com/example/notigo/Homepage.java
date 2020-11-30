@@ -41,6 +41,8 @@ public class Homepage extends AppCompatActivity {
 
         Button Comstruc;
         Button Infosys;
+        Button Introtoalgo;
+        Button Hass;
 
         Button buttonBac;
 
@@ -54,15 +56,53 @@ public class Homepage extends AppCompatActivity {
         Comstruc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String xyz="ComStruc";
                 Intent intent = new Intent(Homepage.this,
                         Stories.class);
+                intent.putExtra("Subject_code", xyz);
                 startActivity(intent);
 
             }
         });
 
+        Infosys=findViewById(R.id.infosys);
+        Infosys.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String xyz="InfoSys";
+                Intent intent = new Intent(Homepage.this,
+                        Stories.class);
+                intent.putExtra("Subject_code", xyz);
+                startActivity(intent);
 
+            }
+        });
 
+        Introtoalgo=findViewById(R.id.algo);
+        Introtoalgo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String xyz="IntroToAlgo";
+                Intent intent = new Intent(Homepage.this,
+                        Stories.class);
+                intent.putExtra("Subject_code", xyz);
+                startActivity(intent);
+
+            }
+        });
+
+        Hass=findViewById(R.id.hass);
+        Hass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String xyz="Hass";
+                Intent intent = new Intent(Homepage.this,
+                        Stories.class);
+                intent.putExtra("Subject_code", xyz);
+                startActivity(intent);
+
+            }
+        });
 
 
         buttonedim = findViewById(R.id.edim);
