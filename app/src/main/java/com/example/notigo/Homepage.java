@@ -62,6 +62,7 @@ public class Homepage extends AppCompatActivity {
                 Intent intent = new Intent(Homepage.this,
                         Stories.class);
                 intent.putExtra("Subject_code", xyz);
+                intent.putExtra("buttonVisible", false);
                 startActivity(intent);
 
             }
@@ -75,6 +76,7 @@ public class Homepage extends AppCompatActivity {
                 Intent intent = new Intent(Homepage.this,
                         Stories.class);
                 intent.putExtra("Subject_code", xyz);
+                intent.putExtra("buttonVisible", false);
                 startActivity(intent);
 
             }
@@ -88,6 +90,7 @@ public class Homepage extends AppCompatActivity {
                 Intent intent = new Intent(Homepage.this,
                         Stories.class);
                 intent.putExtra("Subject_code", xyz);
+                intent.putExtra("buttonVisible", false);
                 startActivity(intent);
 
             }
@@ -101,6 +104,7 @@ public class Homepage extends AppCompatActivity {
                 Intent intent = new Intent(Homepage.this,
                         Stories.class);
                 intent.putExtra("Subject_code", xyz);
+                intent.putExtra("buttonVisible", false);
                 startActivity(intent);
 
             }
@@ -111,8 +115,11 @@ public class Homepage extends AppCompatActivity {
         Personal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String xyz="Personal";
                 Intent intent = new Intent(Homepage.this,
-                        PersonalUpdates.class);
+                        Stories.class);
+                intent.putExtra("Subject_code", xyz);
+                intent.putExtra("buttonVisible", true);
                 startActivity(intent);
 
             }

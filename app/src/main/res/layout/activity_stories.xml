@@ -38,6 +38,13 @@
             android:layout_weight="1"
             android:text="Refresh" />
 
+        <Button
+            android:id="@+id/addbutt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:text="Add" />
 
 
         <Button
@@ -47,6 +54,7 @@
             android:layout_gravity="bottom"
             android:layout_weight="1"
             android:text="Back" />
+
 
     </LinearLayout>
 

@@ -38,6 +38,7 @@ public class Stories extends AppCompatActivity {
     MyAdapter adapter;
     Button buttonback;
     Button buttonrefresh;
+    Button buttonadd;
 
     DatabaseReference reference;
     ArrayList<Listitem> list;
@@ -63,10 +64,16 @@ public class Stories extends AppCompatActivity {
             }
         });
 
+        buttonadd = findViewById(R.id.addbutt);
+        buttonadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Stories.this,
+                        EditEvent.class);
+                startActivity(intent);
+            }
 
-
-
-
+        });
         //every update to firebase may produce duplicates in app
         //press button to refresh everytime firebase is updated
         buttonrefresh = findViewById(R.id.refresh);
@@ -80,16 +87,21 @@ public class Stories extends AppCompatActivity {
 
                 //never orderbyChild - recorded date as String + assume firebase takes in data daily so data alr sorted based on date
                 //"ComStruc"
-                String newString = getIntent().getExtras().getString("Subject_code");
+                final String newString = getIntent().getExtras().getString("Subject_code");
+                if (getIntent().getBooleanExtra("buttonVisible", false)){
+                    buttonadd.setVisibility(View.VISIBLE);
+                } else
+                    buttonadd.setVisibility(View.GONE);
+
                 reference = FirebaseDatabase.getInstance().getReference().child(newString);
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for(DataSnapshot dataSnapshotl : dataSnapshot.getChildren()){
+                        for (DataSnapshot dataSnapshotl : dataSnapshot.getChildren()) {
                             Listitem l = dataSnapshotl.getValue(Listitem.class);
                             list.add(l);
 
-                            adapter = new MyAdapter(Stories.this , list);
+                            adapter = new MyAdapter(Stories.this, list);
                             recyclerView.setAdapter(adapter);
                         }
 
@@ -124,9 +136,11 @@ public class Stories extends AppCompatActivity {
                         adapter.notifyItemRemoved(position);
 
 
+                        //reference.child("Event " + (position + 1)).removeValue();
+
                         //firebase deletion
                         //check is deletion complete through OnCompleteListener
-                        reference.child("Event "+(position+1)).setValue(null).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        reference.child("Event " + (position + 1)).setValue(null).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
@@ -146,13 +160,11 @@ public class Stories extends AppCompatActivity {
                 itemTouchHelper.attachToRecyclerView(recyclerView);
 
 
-
             }
 
         });
 
 
+
     }
-
-
 }
