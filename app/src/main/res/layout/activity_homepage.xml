@@ -53,6 +53,12 @@
                 android:layout_height="150dp"
                 android:text="Hass"/>
 
+            <Button
+                android:id="@+id/personal"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:text="Personal"/>
+
         </LinearLayout>
 
     </HorizontalScrollView>
@@ -62,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="30dp"
         android:orientation="vertical">
 
 

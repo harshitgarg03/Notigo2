@@ -3,6 +3,7 @@ package com.example.notigo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Person;
 import android.os.Bundle;
 
 import android.view.View;
@@ -27,6 +28,7 @@ import com.squareup.picasso.Picasso;
 
 import javax.annotation.Nullable;
 
+
 public class Homepage extends AppCompatActivity {
 
     @Override
@@ -43,7 +45,7 @@ public class Homepage extends AppCompatActivity {
         Button Infosys;
         Button Introtoalgo;
         Button Hass;
-
+        Button Personal;
         Button buttonBac;
 
         //wanna make the student id into edit text profile name?
@@ -99,6 +101,18 @@ public class Homepage extends AppCompatActivity {
                 Intent intent = new Intent(Homepage.this,
                         Stories.class);
                 intent.putExtra("Subject_code", xyz);
+                startActivity(intent);
+
+            }
+        });
+
+
+        Personal =findViewById(R.id.personal);
+        Personal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Homepage.this,
+                        PersonalUpdates.class);
                 startActivity(intent);
 
             }

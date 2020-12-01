@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.notigo">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -8,13 +9,16 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="app_name"
-        android:screenOrientation="portrait"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditProfile">
-
-        </activity>
+        <activity android:name=".Listpersonalitem" />
+        <activity
+            android:name=".PersonalUpdates"
+            android:parentActivityName=".Homepage"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".EditProfile" />
         <activity android:name=".Register">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,12 +33,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!--        StoryOverview and ShowStory Activities added-->
-        <activity android:name=".Homepage"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".Stories"
-            android:parentActivityName=".Homepage"></activity>
+        </activity> <!-- StoryOverview and ShowStory Activities added -->
+        <activity
+            android:name=".Homepage"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Stories"
+            android:parentActivityName=".Homepage" />
 
         <meta-data
             android:name="preloaded_fonts"
